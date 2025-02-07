@@ -3,7 +3,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.withCredentials = true;
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Accept'] = 'application/json';
 
 const AuthContext = createContext({});
 
@@ -34,10 +35,17 @@ export function AuthProvider({ children }) {
   };
 
   const login = async (email, password) => {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
-      email,
-      password
-    });
+    const response = await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/auth/login`,
+      { email, password },
+      {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      }
+    );
     const { token, user: userData } = response.data;
     localStorage.setItem('token', token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -53,6 +61,7 @@ export function AuthProvider({ children }) {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json'
           }
         }
       );
