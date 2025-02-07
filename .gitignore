@@ -12,6 +12,9 @@
 # production
 /build
 
+# Don't ignore _redirects
+!public/_redirects
+
 # misc
 .DS_Store
 .env.local

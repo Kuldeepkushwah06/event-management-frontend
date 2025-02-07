@@ -51,7 +51,7 @@ const PublicRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/">
       <AuthProvider>
         <div className="min-h-screen bg-gray-50">
           <Navbar />
