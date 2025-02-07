@@ -64,7 +64,7 @@ A full-stack web application for creating and managing events. Users can create 
 
 ### Installation
 
-1. Clone the repository - git clone https://github.com/Kuldeepkushwah06/event-management-frontend.git
+1. Clone the repository - git clone https://github.com/Kuldeepkushwah06/event-management-frontend.git && git clone https://github.com/Kuldeepkushwah06/event-mangement-backend.git
 cd event-management
 2. Install backend dependencies - cd backend && npm install
 
@@ -121,4 +121,5 @@ The application will be available at `http://localhost:3000`
 ## Deployment
 
 The backend is deployed at: https://event-mangement-backend-219j.onrender.com
+The frontend is deployed at: https://eventmanagementkuldeep.netlify.app
 
