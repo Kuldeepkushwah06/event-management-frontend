@@ -57,10 +57,10 @@ export function AuthProvider({ children }) {
         }
       );
       console.log('Registration response:', response.data);
-      const { token, user: userData } = response.data;
+      const { token, user: registeredUser } = response.data;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      setUser(userData);
+      setUser(registeredUser);
     } catch (error) {
       console.error('Registration error in context:', error);
       throw error;
